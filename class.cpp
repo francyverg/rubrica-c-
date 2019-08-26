@@ -15,3 +15,9 @@ void Contatti::elimina()
 {
 	
 }
+/*main()
+{
+	Contatti contatti;
+	contatti.aggiungi();
+	cout<<"il contatto inserito è: "<<contatti.nome<<" "<<contatti.cognome<<" "<<contatti.numero<< endl;
+};/*
