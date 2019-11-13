@@ -7,22 +7,27 @@ bool quit = false;
 string first_name;
 string second_name;
 string phone;
+int position;
 string name[20] = {"Andrea", "Luca", "Bianca", "Licia"};
 string surname[20] = {"Tosato", "Artioli", "Greco", "Riva"};
 string number[20] = {"7235647826", "3485689246", "9836348115", "9186481667"};
+
 void print_rub(){
 	cout << "I tuoi contatti: " << endl << endl;
-	for(int i = 0; i <= x; i++){
-		if(i < 10){
-			cout << " " << i << " " ;
+	for(int i = 0; i < x; i++){
+  	if(name[i] != ""){			
+			if(i < 10){
+				cout << " " << i+1 << " " ;
+			}
+			else{
+				cout << i << " "; 
+			}
+			cout << name[i] << " " << surname[i] << " " << number[i] << endl;
 		}
-		else{
-			cout << i << " ";
+    else{
+		cout << "";
 		}
-		if(name[i] != " "){
-			cout << name[i] << " " << surname[i] << " " << number[i] << endl; 
-		}
-	}
+  }
 }
 int main(){
 	cout<<"Benvenuto nella rubrica"<<endl;
@@ -35,7 +40,7 @@ int main(){
 		cin >> key;
 		cout << endl;
 		if (key=='a'){
-			cout << "Nome: ";
+      cout << "Nome: ";
 			cin >> first_name;
 			cout << "Cognome: ";
 			cin >> second_name;
@@ -48,28 +53,22 @@ int main(){
 					number[i]= phone;
 					break;
 				}
-			}
-			print_rub();	
-		}
+      } //q	print_rub();
+    }
+		//	print_rub();	
 		else if(key =='d'){
-			cout << "Nome: ";
-			cin >> first_name;
-			cout << "Cognome: ";
-			cin >> second_name;
-			cout << "Numero: ";
-			cin >> phone;
-			for(int i=0; i<=x;i++){
-				if(name[i]==first_name && surname[i]== second_name && number[i]== phone){
-					name[i]= "";
-					surname[i]= "";
-					number[i]= "";		
-				}	
+			cout << "Posizione del contatto da eliminare: ";
+			cin >> position;
+			for(int i = position-1; i < 20-position; i++){
+				name[i] = name[i+1];	
+				surname[i] = surname[i+1];
+				number[i] = number[i+1];
 			}
 		}
 		else if(key =='q'){
-			quit == true;
+			quit = true;
 			break;
 		}
-		print_rub();
+	//	print_rub();
 	}while(quit == false);
 }
